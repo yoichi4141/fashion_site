@@ -919,22 +919,23 @@ input:focus, textarea:focus {
     width: 100%;
     height: 120px;
     background: linear-gradient(45deg, 
-        #ff0000 0%, 
-        #ff6600 15%, 
-        #ffff00 30%, 
-        #00ff00 45%, 
-        #00ffff 60%, 
-        #0000ff 75%, 
-        #ff00ff 90%, 
-        #ff0000 100%);
-    background-size: 40px 40px;
+        #FF0000 0%, 
+        #FF8C00 12%, 
+        #FFD700 24%, 
+        #32CD32 36%, 
+        #00BFFF 48%, 
+        #FF1493 60%, 
+        #9370DB 72%, 
+        #FF4500 84%, 
+        #FF0000 100%);
+    background-size: 30px 30px;
     border: 2px inset #c0c0c0;
     position: relative;
     overflow: hidden;
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
-    animation: bannerFlicker 2s ease-in-out infinite, psychedelicShift 5s linear infinite;
+    animation: bannerBounce 2s ease-in-out infinite, bannerShift 4s linear infinite;
 }
 
 .banner-placeholder::before {
@@ -946,12 +947,12 @@ input:focus, textarea:focus {
     bottom: 0;
     background: repeating-linear-gradient(
         45deg,
-        rgba(255, 0, 0, 0.2),
-        rgba(255, 0, 0, 0.2) 2px,
-        rgba(0, 255, 0, 0.2) 2px,
-        rgba(0, 255, 0, 0.2) 4px,
-        rgba(0, 0, 255, 0.2) 4px,
-        rgba(0, 0, 255, 0.2) 6px
+        rgba(255, 0, 0, 0.3),
+        rgba(255, 0, 0, 0.3) 3px,
+        rgba(0, 191, 255, 0.3) 3px,
+        rgba(0, 191, 255, 0.3) 6px,
+        rgba(255, 215, 0, 0.3) 6px,
+        rgba(255, 215, 0, 0.3) 9px
     );
     pointer-events: none;
 }
@@ -964,14 +965,13 @@ input:focus, textarea:focus {
     text-align: center;
     color: #ffffff;
     text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 10px #ff0000,
-        0 0 20px #ff0000,
-        0 0 30px #ff0000;
+        3px 3px 6px rgba(0, 0, 0, 0.8),
+        0 0 15px #FF1493,
+        0 0 25px #FF1493;
     font-family: 'MS UI Gothic', monospace;
     font-weight: bold;
     line-height: 1.2;
-    animation: textEruption 3s ease-in-out infinite;
+    animation: textBounce 2s ease-in-out infinite;
 }
 
 .banner-title {
@@ -980,15 +980,15 @@ input:focus, textarea:focus {
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 5px;
-    animation: textGlow 1s ease-in-out infinite alternate, textShake 0.5s ease-in-out infinite;
+    animation: titlePop 1.5s ease-in-out infinite alternate;
 }
 
 .banner-subtitle {
     display: block;
     font-size: 12px;
     letter-spacing: 1px;
-    opacity: 0.9;
-    animation: textPulse 2s ease-in-out infinite;
+    opacity: 1;
+    animation: subtitleBounce 2.5s ease-in-out infinite;
 }
 
 .banner-decoration {
@@ -996,53 +996,67 @@ input:focus, textarea:focus {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    color: #ffff00;
+    color: #FFD700;
     font-family: 'MS UI Gothic', monospace;
     font-size: 11px;
     text-shadow: 
-        1px 1px 2px rgba(0, 0, 0, 0.8),
-        0 0 5px #ffff00,
-        0 0 10px #ffff00;
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 10px #FFD700;
     display: flex;
     align-items: center;
     gap: 10px;
-    animation: decorationRage 2s ease-in-out infinite;
+    animation: decorationPop 2s ease-in-out infinite;
 }
 
 .deco-left, .deco-right {
-    animation: decorationBlink 1s ease-in-out infinite, decorationSpin 3s linear infinite;
+    animation: decorationSpin 3s linear infinite;
 }
 
 .deco-center {
     font-weight: bold;
     letter-spacing: 1px;
-    animation: decorationPulse 1.5s ease-in-out infinite;
+    animation: decorationZoom 2s ease-in-out infinite;
 }
 
-@keyframes psychedelicShift {
+@keyframes bannerBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes bannerShift {
     0% { background-position: 0 0; }
-    100% { background-position: 40px 40px; }
+    100% { background-position: 30px 30px; }
 }
 
-@keyframes textEruption {
+@keyframes textBounce {
     0%, 100% { transform: translate(-50%, -50%) scale(1); }
     50% { transform: translate(-50%, -50%) scale(1.05); }
 }
 
-@keyframes textShake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-1px); }
-    75% { transform: translateX(1px); }
+@keyframes titlePop {
+    0% { 
+        text-shadow: 
+            3px 3px 6px rgba(0, 0, 0, 0.8), 
+            0 0 15px #FF1493,
+            0 0 25px #FF1493;
+    }
+    100% { 
+        text-shadow: 
+            3px 3px 6px rgba(0, 0, 0, 0.8), 
+            0 0 20px #FF1493,
+            0 0 30px #FF1493,
+            0 0 40px #FF1493;
+    }
 }
 
-@keyframes textPulse {
-    0%, 100% { opacity: 0.9; }
-    50% { opacity: 1; }
+@keyframes subtitleBounce {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
 }
 
-@keyframes decorationRage {
-    0%, 100% { transform: translateX(-50%) rotate(0deg); }
-    50% { transform: translateX(-50%) rotate(1deg); }
+@keyframes decorationPop {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
 }
 
 @keyframes decorationSpin {
@@ -1050,40 +1064,12 @@ input:focus, textarea:focus {
     100% { transform: rotate(360deg); }
 }
 
-@keyframes decorationPulse {
-    0%, 100% { color: #ffff00; }
-    50% { color: #ff0000; }
+@keyframes decorationZoom {
+    0%, 100% { color: #FFD700; }
+    50% { color: #FF4500; }
 }
 
-@keyframes bannerFlicker {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
-}
-
-@keyframes textGlow {
-    0% { 
-        text-shadow: 
-            2px 2px 4px rgba(0, 0, 0, 0.8), 
-            0 0 10px #ff0000,
-            0 0 20px #ff0000,
-            0 0 30px #ff0000;
-    }
-    100% { 
-        text-shadow: 
-            2px 2px 4px rgba(0, 0, 0, 0.8), 
-            0 0 20px #ff0000,
-            0 0 30px #ff0000,
-            0 0 40px #ff0000,
-            0 0 50px #ff0000;
-    }
-}
-
-@keyframes decorationBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-}
-
-/* レトロCRT効果の強化 */
+/* レトロCRT効果の90年代版 */
 .banner-placeholder::after {
     content: '';
     position: absolute;
@@ -1092,62 +1078,58 @@ input:focus, textarea:focus {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at center, transparent 0%, rgba(255, 0, 0, 0.1) 100%),
+        radial-gradient(circle at center, transparent 0%, rgba(255, 20, 147, 0.15) 100%),
         linear-gradient(90deg, 
             transparent 0%, 
             rgba(255, 255, 255, 0.1) 50%, 
             transparent 100%);
-    animation: crtScan 3s linear infinite, crtFlash 8s ease-in-out infinite;
+    animation: crtPop 3s linear infinite;
     pointer-events: none;
 }
 
-@keyframes crtScan {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+@keyframes crtPop {
+    0% { transform: translateX(-100%) scale(1); }
+    50% { transform: translateX(0%) scale(1.1); }
+    100% { transform: translateX(100%) scale(1); }
 }
 
-@keyframes crtFlash {
-    0%, 95%, 100% { opacity: 0.3; }
-    96%, 99% { opacity: 1; }
-}
-
-/* 尖った商品カードスタイル */
+/* 90年代ポップ商品カードスタイル */
 .product-item {
     background: 
         linear-gradient(45deg, 
-            #808080 25%, 
-            #c0c0c0 25%, 
-            #c0c0c0 50%, 
-            #808080 50%, 
-            #808080 75%, 
-            #c0c0c0 75%);
-    background-size: 8px 8px;
+            #FF69B4 25%, 
+            #00BFFF 25%, 
+            #00BFFF 50%, 
+            #FF69B4 50%, 
+            #FF69B4 75%, 
+            #00BFFF 75%);
+    background-size: 10px 10px;
     border: 2px outset #c0c0c0;
     margin: 5px;
     padding: 5px;
-    animation: cardPulse 4s ease-in-out infinite;
+    animation: cardBounce 3s ease-in-out infinite;
 }
 
 .product-item:hover {
-    animation: cardRage 0.5s ease-in-out infinite;
-    border-color: #ff0000;
-    box-shadow: 0 0 15px #ff0000;
+    animation: cardPop 0.8s ease-in-out infinite;
+    border-color: #FF1493;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
 }
 
-@keyframes cardPulse {
+@keyframes cardBounce {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.01); }
 }
 
-@keyframes cardRage {
+@keyframes cardPop {
     0%, 100% { transform: scale(1) rotate(0deg); }
-    25% { transform: scale(1.02) rotate(0.5deg); }
-    75% { transform: scale(1.02) rotate(-0.5deg); }
+    25% { transform: scale(1.05) rotate(1deg); }
+    75% { transform: scale(1.05) rotate(-1deg); }
 }
 
-/* 攻撃的なリンクスタイル */
+/* 90年代ポップリンクスタイル */
 .category-link, .brand-link {
-    color: #000080;
+    color: #FF1493;
     text-decoration: none;
     font-family: 'MS UI Gothic', monospace;
     font-size: 11px;
@@ -1155,337 +1137,364 @@ input:focus, textarea:focus {
 }
 
 .category-link:hover, .brand-link:hover {
-    color: #ff0000;
+    color: #FF4500;
     text-shadow: 
-        0 0 5px #ff0000,
-        0 0 10px #ff0000;
-    animation: linkRage 0.2s ease-in-out infinite;
+        0 0 10px #FF4500,
+        0 0 20px #FF4500;
+    animation: linkBounce 0.3s ease-in-out infinite;
 }
 
-@keyframes linkRage {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(2px); }
+@keyframes linkBounce {
+    0%, 100% { transform: translateX(0) scale(1); }
+    50% { transform: translateX(3px) scale(1.1); }
 }
 
-/* パネルヘッダーの強化 */
+/* パネルヘッダーの90年代版 */
 .panel-header {
-    background: linear-gradient(90deg, #008080, #ff0000, #008080);
-    background-size: 200% 100%;
+    background: linear-gradient(90deg, #FF1493, #00BFFF, #FFD700, #32CD32, #FF1493);
+    background-size: 300% 100%;
     color: white;
     padding: 2px 5px;
     font-family: 'MS UI Gothic', monospace;
     font-size: 11px;
     font-weight: bold;
     border: 1px outset #c0c0c0;
-    animation: headerShift 5s linear infinite;
+    animation: headerPop 3s linear infinite;
 }
 
-@keyframes headerShift {
+@keyframes headerPop {
     0% { background-position: 0% 0%; }
-    100% { background-position: 200% 0%; }
+    100% { background-position: 300% 0%; }
 }
 
-/* 尖った商品タイトル */
+/* 90年代ポップ商品タイトル */
 .product-title {
     font-family: 'MS UI Gothic', monospace;
     font-size: 12px;
     font-weight: bold;
-    color: #000080;
+    color: #FF1493;
     margin-bottom: 2px;
-    animation: titleGlow 3s ease-in-out infinite;
+    animation: titleBounce 2s ease-in-out infinite;
 }
 
-@keyframes titleGlow {
-    0%, 100% { color: #000080; }
+@keyframes titleBounce {
+    0%, 100% { color: #FF1493; }
     50% { 
-        color: #ff0000;
-        text-shadow: 0 0 5px #ff0000;
+        color: #FF4500;
+        text-shadow: 0 0 10px #FF4500;
     }
 }
 
-/* 地獄のボタンスタイル */
+/* 90年代ポップボタンスタイル */
 .search-button {
-    background: linear-gradient(45deg, #ff0000, #ff6600);
+    background: linear-gradient(45deg, #FF1493, #00BFFF, #FFD700);
     border: 2px outset #c0c0c0;
     color: white;
     padding: 1px 8px;
     font-family: 'MS UI Gothic', monospace;
     font-size: 11px;
     cursor: pointer;
-    animation: buttonPulse 2s ease-in-out infinite;
+    animation: buttonBounce 2s ease-in-out infinite;
 }
 
 .search-button:hover {
-    animation: buttonRage 0.3s ease-in-out infinite;
-    box-shadow: 0 0 10px #ff0000;
+    animation: buttonPop 0.5s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
 }
 
-@keyframes buttonPulse {
+@keyframes buttonBounce {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
 }
 
-@keyframes buttonRage {
+@keyframes buttonPop {
     0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.1) rotate(1deg); }
+    50% { transform: scale(1.15) rotate(5deg); }
 }
 
-/* 尖った価格表示 */
+/* 90年代ポップ価格表示 */
 .product-price {
     font-family: 'MS UI Gothic', monospace;
     font-size: 14px;
     font-weight: bold;
-    color: #ff0000;
-    animation: priceFlash 2s ease-in-out infinite;
+    color: #FF4500;
+    animation: pricePop 2s ease-in-out infinite;
 }
 
-@keyframes priceFlash {
-    0%, 100% { color: #ff0000; }
+@keyframes pricePop {
+    0%, 100% { color: #FF4500; }
     50% { 
-        color: #ffff00;
-        text-shadow: 0 0 5px #ffff00;
+        color: #32CD32;
+        text-shadow: 0 0 10px #32CD32;
     }
 }
 
-/* 尖った商品説明 */
+/* 90年代ポップ商品説明 */
 .product-size {
     font-family: 'MS UI Gothic', monospace;
     font-size: 10px;
-    color: #800080;
-    animation: sizeGlow 4s ease-in-out infinite;
+    color: #9370DB;
+    animation: sizeBounce 3s ease-in-out infinite;
 }
 
-@keyframes sizeGlow {
-    0%, 100% { color: #800080; }
+@keyframes sizeBounce {
+    0%, 100% { color: #9370DB; }
     50% { 
-        color: #ff00ff;
-        text-shadow: 0 0 3px #ff00ff;
+        color: #FF1493;
+        text-shadow: 0 0 5px #FF1493;
     }
 }
 
-/* 攻撃的なスクロールバー */
+/* 90年代ポップスクロールバー */
 ::-webkit-scrollbar {
     width: 16px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #c0c0c0;
+    background: #FFB6C1;
     border: 1px inset #c0c0c0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #ff0000, #ff6600);
+    background: linear-gradient(45deg, #FF1493, #00BFFF, #FFD700);
     border: 1px outset #c0c0c0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #ff6600, #ff0000);
-    animation: scrollRage 0.5s ease-in-out infinite;
+    background: linear-gradient(45deg, #FF4500, #32CD32, #9370DB);
+    animation: scrollPop 0.5s ease-in-out infinite;
 }
 
-@keyframes scrollRage {
+@keyframes scrollPop {
     0%, 100% { transform: scaleX(1); }
-    50% { transform: scaleX(1.1); }
+    50% { transform: scaleX(1.2); }
 }
 
-/* 全体的なページの地獄エフェクト */
+/* 全体的な90年代ポップページエフェクト */
 body {
-    animation: pageBreath 10s ease-in-out infinite;
+    animation: pagePop 8s ease-in-out infinite;
 }
 
-@keyframes pageBreath {
+@keyframes pagePop {
     0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.05); }
+    50% { filter: brightness(1.1); }
 }
 
-/* 尖った入力フィールド */
+/* 90年代ポップ入力フィールド */
 .search-input {
     border: 2px inset #c0c0c0;
     background: #ffffff;
     font-family: 'MS UI Gothic', monospace;
     font-size: 11px;
     padding: 1px 3px;
-    animation: inputPulse 3s ease-in-out infinite;
+    animation: inputBounce 3s ease-in-out infinite;
 }
 
 .search-input:focus {
-    border-color: #ff0000;
-    box-shadow: 0 0 10px #ff0000;
-    animation: inputRage 0.5s ease-in-out infinite;
+    border-color: #FF1493;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
+    animation: inputPop 0.5s ease-in-out infinite;
 }
 
-@keyframes inputPulse {
+@keyframes inputBounce {
     0%, 100% { background: #ffffff; }
-    50% { background: #fffacd; }
+    50% { background: #fff5ff; }
 }
 
-@keyframes inputRage {
+@keyframes inputPop {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    50% { transform: scale(1.05); }
 }
 
 /* 特別なプレミアム商品のスタイル */
 .one-of-a-kind {
-    border: 3px solid #ff0000;
+    border: 3px solid #FF1493;
     background: linear-gradient(45deg, 
-        #ff0000 0%, 
-        #ff6600 25%, 
-        #ffff00 50%, 
-        #ff6600 75%, 
-        #ff0000 100%);
-    background-size: 16px 16px;
-    animation: specialGlow 2s ease-in-out infinite alternate, specialShift 8s linear infinite;
+        #FF69B4 0%, 
+        #00BFFF 20%, 
+        #FFD700 40%, 
+        #32CD32 60%, 
+        #FF4500 80%, 
+        #FF69B4 100%);
+    background-size: 15px 15px;
+    animation: specialPop 1.5s ease-in-out infinite alternate, specialShift 6s linear infinite;
 }
 
-@keyframes specialGlow {
+@keyframes specialPop {
     0% { 
         box-shadow: 
-            0 0 10px #ff0000,
-            0 0 20px #ff0000,
-            0 0 30px #ff0000;
+            0 0 15px rgba(255, 20, 147, 0.8),
+            0 0 30px rgba(255, 20, 147, 0.6);
     }
     100% { 
         box-shadow: 
-            0 0 20px #ff0000,
-            0 0 30px #ff0000,
-            0 0 40px #ff0000,
-            0 0 50px #ff0000;
+            0 0 25px rgba(255, 20, 147, 1),
+            0 0 40px rgba(255, 20, 147, 0.8),
+            0 0 55px rgba(255, 20, 147, 0.6);
     }
 }
 
 @keyframes specialShift {
     0% { background-position: 0 0; }
-    100% { background-position: 16px 16px; }
+    100% { background-position: 15px 15px; }
 }
 
-/* 尖ったマーキー効果 */
+/* 90年代ポップマーキー効果 */
 .product-brand {
-    animation: brandFlash 3s ease-in-out infinite;
+    animation: brandPop 2s ease-in-out infinite;
 }
 
-@keyframes brandFlash {
+@keyframes brandPop {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+    50% { opacity: 0.8; }
 }
 
-/* 地獄のチェックボックス */
+/* 90年代ポップチェックボックス */
 input[type="checkbox"] {
     appearance: none;
     width: 12px;
     height: 12px;
-    background: #c0c0c0;
+    background: #FFB6C1;
     border: 2px inset #c0c0c0;
     position: relative;
     cursor: pointer;
-    animation: checkboxPulse 4s ease-in-out infinite;
+    animation: checkboxBounce 3s ease-in-out infinite;
 }
 
 input[type="checkbox"]:checked::after {
-    content: '■';
+    content: '☆';
     position: absolute;
     top: -2px;
     left: 0;
-    color: #ff0000;
+    color: #FF1493;
     font-size: 10px;
-    animation: checkRage 0.5s ease-in-out infinite;
+    animation: checkPop 0.8s ease-in-out infinite;
 }
 
-@keyframes checkboxPulse {
+@keyframes checkboxBounce {
     0%, 100% { border-color: #c0c0c0; }
-    50% { border-color: #ff0000; }
+    50% { border-color: #FF1493; }
 }
 
-@keyframes checkRage {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+@keyframes checkPop {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.3) rotate(10deg); }
 }
 
-/* 攻撃的なステータスバー */
-.status-bar {
-    background: linear-gradient(90deg, #008080, #ff0000, #008080);
-    background-size: 200% 100%;
-    animation: statusShift 3s linear infinite;
-}
-
-@keyframes statusShift {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 200% 0%; }
-}
-
-/* 尖った訪問者カウンター */
-.visitor-counter {
-    animation: counterRage 2s ease-in-out infinite;
-}
-
-@keyframes counterRage {
-    0%, 100% { 
-        color: #ff0000;
-        text-shadow: 0 0 5px #ff0000;
-    }
-    50% { 
-        color: #ffff00;
-        text-shadow: 0 0 10px #ffff00;
-    }
-}
-
-/* 地獄のセクションヘッダー */
+/* 90年代ポップセクションヘッダー */
 .section-header {
     font-family: 'MS UI Gothic', monospace;
     font-size: 14px;
     font-weight: bold;
     color: #ffffff;
-    background: linear-gradient(45deg, #ff0000, #ff6600, #ffff00, #ff6600, #ff0000);
-    background-size: 400% 100%;
+    background: linear-gradient(45deg, #FF1493, #00BFFF, #FFD700, #32CD32, #FF4500, #9370DB, #FF1493);
+    background-size: 500% 100%;
     padding: 5px 10px;
     border: 2px outset #c0c0c0;
     text-align: center;
     margin-bottom: 10px;
-    animation: headerRage 3s linear infinite, headerPulse 2s ease-in-out infinite;
+    animation: headerPopFlow 2s linear infinite, headerBounce 3s ease-in-out infinite;
 }
 
-@keyframes headerRage {
+@keyframes headerPopFlow {
     0% { background-position: 0% 0%; }
-    100% { background-position: 400% 0%; }
+    100% { background-position: 500% 0%; }
 }
 
-@keyframes headerPulse {
+@keyframes headerBounce {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    50% { transform: scale(1.03); }
 }
 
-/* 最終的な地獄エフェクト */
+/* 90年代ポップウィンドウエフェクト */
 .window-body {
-    animation: windowBreath 8s ease-in-out infinite;
+    animation: windowPop 6s ease-in-out infinite;
 }
 
-@keyframes windowBreath {
+@keyframes windowPop {
     0%, 100% { filter: contrast(1); }
-    50% { filter: contrast(1.05); }
+    50% { filter: contrast(1.1); }
 }
 
-/* 尖った商品画像プレースホルダー */
+/* 90年代ポップ商品画像プレースホルダー */
 .image-placeholder {
     width: 100%;
     height: 100px;
-    background: linear-gradient(45deg, #ff0000, #000000);
+    background: linear-gradient(45deg, #FF1493, #00BFFF, #FFD700);
     background-size: 8px 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'MS UI Gothic', monospace;
-    font-size: 24px;
+    font-size: 36px;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
     border: 2px inset #c0c0c0;
-    animation: imagePulse 3s ease-in-out infinite, imageShift 6s linear infinite;
+    animation: imagePop 2s ease-in-out infinite, imageShift 4s linear infinite;
 }
 
-@keyframes imagePulse {
+@keyframes imagePop {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    50% { transform: scale(1.03); }
 }
 
 @keyframes imageShift {
     0% { background-position: 0 0; }
     100% { background-position: 8px 8px; }
+}
+
+/* 90年代ポップ全体のエフェクト */
+.window::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 10%, rgba(255, 20, 147, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 90% 90%, rgba(0, 191, 255, 0.1) 2px, transparent 2px),
+        radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 2px, transparent 2px);
+    background-size: 60px 60px, 40px 40px, 30px 30px;
+    animation: popMove 8s linear infinite;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@keyframes popMove {
+    0% { background-position: 0 0, 0 0, 0 0; }
+    100% { background-position: 60px 60px, 40px 40px, 30px 30px; }
+}
+
+/* 90年代ポップホバーエフェクト */
+.product-item:hover .product-title {
+    animation: titlePop 0.5s ease-in-out infinite;
+}
+
+@keyframes titlePop {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(2deg); }
+}
+
+/* 90年代ポップ情報テキスト */
+.info-text {
+    animation: infoPop 4s ease-in-out infinite;
+}
+
+@keyframes infoPop {
+    0%, 100% { color: #000000; }
+    50% { 
+        color: #FF1493;
+        text-shadow: 0 0 5px #FF1493;
+    }
+}
+
+/* 90年代ポップパネルボディ */
+.panel-body {
+    animation: panelBounce 5s ease-in-out infinite;
+}
+
+@keyframes panelBounce {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.05); }
 }
