@@ -919,22 +919,21 @@ input:focus, textarea:focus {
     width: 100%;
     height: 120px;
     background: linear-gradient(45deg, 
-        #ff0000 0%, 
-        #ff6600 15%, 
-        #ffff00 30%, 
-        #00ff00 45%, 
-        #00ffff 60%, 
-        #0000ff 75%, 
-        #ff00ff 90%, 
-        #ff0000 100%);
-    background-size: 40px 40px;
+        #FFB6C1 0%, 
+        #FFC0CB 15%, 
+        #FFE4E1 30%, 
+        #E6E6FA 45%, 
+        #B0E0E6 60%, 
+        #F0E68C 75%, 
+        #FFB6C1 100%);
+    background-size: 25px 25px;
     border: 2px inset #c0c0c0;
     position: relative;
     overflow: hidden;
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
-    animation: bannerFlicker 2s ease-in-out infinite, psychedelicShift 5s linear infinite;
+    animation: bannerSparkle 3s ease-in-out infinite;
 }
 
 .banner-placeholder::before {
@@ -946,12 +945,12 @@ input:focus, textarea:focus {
     bottom: 0;
     background: repeating-linear-gradient(
         45deg,
-        rgba(255, 0, 0, 0.2),
-        rgba(255, 0, 0, 0.2) 2px,
-        rgba(0, 255, 0, 0.2) 2px,
-        rgba(0, 255, 0, 0.2) 4px,
-        rgba(0, 0, 255, 0.2) 4px,
-        rgba(0, 0, 255, 0.2) 6px
+        rgba(255, 182, 193, 0.3),
+        rgba(255, 182, 193, 0.3) 2px,
+        rgba(176, 224, 230, 0.3) 2px,
+        rgba(176, 224, 230, 0.3) 4px,
+        rgba(255, 192, 203, 0.3) 4px,
+        rgba(255, 192, 203, 0.3) 6px
     );
     pointer-events: none;
 }
@@ -964,14 +963,13 @@ input:focus, textarea:focus {
     text-align: center;
     color: #ffffff;
     text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.8),
-        0 0 10px #ff0000,
-        0 0 20px #ff0000,
-        0 0 30px #ff0000;
+        2px 2px 4px rgba(0, 0, 0, 0.6),
+        0 0 8px rgba(255, 182, 193, 0.8),
+        0 0 12px rgba(255, 182, 193, 0.6);
     font-family: 'MS UI Gothic', monospace;
     font-weight: bold;
     line-height: 1.2;
-    animation: textEruption 3s ease-in-out infinite;
+    animation: textFloat 3s ease-in-out infinite;
 }
 
 .banner-title {
@@ -980,15 +978,15 @@ input:focus, textarea:focus {
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 5px;
-    animation: textGlow 1s ease-in-out infinite alternate, textShake 0.5s ease-in-out infinite;
+    animation: titleSparkle 2s ease-in-out infinite alternate;
 }
 
 .banner-subtitle {
     display: block;
     font-size: 12px;
     letter-spacing: 1px;
-    opacity: 0.9;
-    animation: textPulse 2s ease-in-out infinite;
+    opacity: 0.95;
+    animation: subtitleFloat 3s ease-in-out infinite;
 }
 
 .banner-decoration {
@@ -996,94 +994,74 @@ input:focus, textarea:focus {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    color: #ffff00;
+    color: #FF69B4;
     font-family: 'MS UI Gothic', monospace;
     font-size: 11px;
     text-shadow: 
-        1px 1px 2px rgba(0, 0, 0, 0.8),
-        0 0 5px #ffff00,
-        0 0 10px #ffff00;
+        1px 1px 2px rgba(0, 0, 0, 0.5),
+        0 0 5px rgba(255, 105, 180, 0.8);
     display: flex;
     align-items: center;
     gap: 10px;
-    animation: decorationRage 2s ease-in-out infinite;
+    animation: decorationTwinkle 2s ease-in-out infinite;
 }
 
 .deco-left, .deco-right {
-    animation: decorationBlink 1s ease-in-out infinite, decorationSpin 3s linear infinite;
+    animation: heartBeat 1.5s ease-in-out infinite;
 }
 
 .deco-center {
     font-weight: bold;
     letter-spacing: 1px;
-    animation: decorationPulse 1.5s ease-in-out infinite;
+    animation: decorationGlow 2s ease-in-out infinite;
 }
 
-@keyframes psychedelicShift {
-    0% { background-position: 0 0; }
-    100% { background-position: 40px 40px; }
-}
-
-@keyframes textEruption {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.05); }
-}
-
-@keyframes textShake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-1px); }
-    75% { transform: translateX(1px); }
-}
-
-@keyframes textPulse {
-    0%, 100% { opacity: 0.9; }
-    50% { opacity: 1; }
-}
-
-@keyframes decorationRage {
-    0%, 100% { transform: translateX(-50%) rotate(0deg); }
-    50% { transform: translateX(-50%) rotate(1deg); }
-}
-
-@keyframes decorationSpin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes decorationPulse {
-    0%, 100% { color: #ffff00; }
-    50% { color: #ff0000; }
-}
-
-@keyframes bannerFlicker {
+@keyframes bannerSparkle {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+    50% { opacity: 0.9; }
 }
 
-@keyframes textGlow {
+@keyframes textFloat {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.02); }
+}
+
+@keyframes titleSparkle {
     0% { 
         text-shadow: 
-            2px 2px 4px rgba(0, 0, 0, 0.8), 
-            0 0 10px #ff0000,
-            0 0 20px #ff0000,
-            0 0 30px #ff0000;
+            2px 2px 4px rgba(0, 0, 0, 0.6), 
+            0 0 8px rgba(255, 182, 193, 0.8),
+            0 0 12px rgba(255, 182, 193, 0.6);
     }
     100% { 
         text-shadow: 
-            2px 2px 4px rgba(0, 0, 0, 0.8), 
-            0 0 20px #ff0000,
-            0 0 30px #ff0000,
-            0 0 40px #ff0000,
-            0 0 50px #ff0000;
+            2px 2px 4px rgba(0, 0, 0, 0.6), 
+            0 0 12px rgba(255, 182, 193, 1),
+            0 0 18px rgba(255, 182, 193, 0.8);
     }
 }
 
-@keyframes decorationBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+@keyframes subtitleFloat {
+    0%, 100% { opacity: 0.95; }
+    50% { opacity: 1; }
 }
 
-/* レトロCRT効果の強化 */
+@keyframes decorationTwinkle {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes decorationGlow {
+    0%, 100% { color: #FF69B4; }
+    50% { color: #FFB6C1; }
+}
+
+/* レトロCRT効果の可愛い版 */
 .banner-placeholder::after {
     content: '';
     position: absolute;
@@ -1092,62 +1070,56 @@ input:focus, textarea:focus {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at center, transparent 0%, rgba(255, 0, 0, 0.1) 100%),
+        radial-gradient(circle at center, transparent 0%, rgba(255, 182, 193, 0.1) 100%),
         linear-gradient(90deg, 
             transparent 0%, 
-            rgba(255, 255, 255, 0.1) 50%, 
+            rgba(255, 255, 255, 0.05) 50%, 
             transparent 100%);
-    animation: crtScan 3s linear infinite, crtFlash 8s ease-in-out infinite;
+    animation: crtSparkle 4s linear infinite;
     pointer-events: none;
 }
 
-@keyframes crtScan {
+@keyframes crtSparkle {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
 }
 
-@keyframes crtFlash {
-    0%, 95%, 100% { opacity: 0.3; }
-    96%, 99% { opacity: 1; }
-}
-
-/* 尖った商品カードスタイル */
+/* 可愛い商品カードスタイル */
 .product-item {
     background: 
         linear-gradient(45deg, 
-            #808080 25%, 
-            #c0c0c0 25%, 
-            #c0c0c0 50%, 
-            #808080 50%, 
-            #808080 75%, 
-            #c0c0c0 75%);
+            #FFF0F5 25%, 
+            #F0F8FF 25%, 
+            #F0F8FF 50%, 
+            #FFF0F5 50%, 
+            #FFF0F5 75%, 
+            #F0F8FF 75%);
     background-size: 8px 8px;
     border: 2px outset #c0c0c0;
     margin: 5px;
     padding: 5px;
-    animation: cardPulse 4s ease-in-out infinite;
+    animation: cardFloat 4s ease-in-out infinite;
 }
 
 .product-item:hover {
-    animation: cardRage 0.5s ease-in-out infinite;
-    border-color: #ff0000;
-    box-shadow: 0 0 15px #ff0000;
+    animation: cardSparkle 1s ease-in-out infinite;
+    border-color: #FF69B4;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
 }
 
-@keyframes cardPulse {
+@keyframes cardFloat {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.01); }
+    50% { transform: scale(1.005); }
 }
 
-@keyframes cardRage {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    25% { transform: scale(1.02) rotate(0.5deg); }
-    75% { transform: scale(1.02) rotate(-0.5deg); }
+@keyframes cardSparkle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
 }
 
-/* 攻撃的なリンクスタイル */
+/* 可愛いリンクスタイル */
 .category-link, .brand-link {
-    color: #000080;
+    color: #FF69B4;
     text-decoration: none;
     font-family: 'MS UI Gothic', monospace;
     font-size: 11px;
@@ -1155,21 +1127,19 @@ input:focus, textarea:focus {
 }
 
 .category-link:hover, .brand-link:hover {
-    color: #ff0000;
-    text-shadow: 
-        0 0 5px #ff0000,
-        0 0 10px #ff0000;
-    animation: linkRage 0.2s ease-in-out infinite;
+    color: #FFB6C1;
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.8);
+    animation: linkTwinkle 0.5s ease-in-out infinite;
 }
 
-@keyframes linkRage {
+@keyframes linkTwinkle {
     0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(2px); }
+    50% { transform: translateX(1px); }
 }
 
-/* パネルヘッダーの強化 */
+/* パネルヘッダーの可愛い版 */
 .panel-header {
-    background: linear-gradient(90deg, #008080, #ff0000, #008080);
+    background: linear-gradient(90deg, #FF69B4, #FFB6C1, #FF69B4);
     background-size: 200% 100%;
     color: white;
     padding: 2px 5px;
@@ -1177,315 +1147,288 @@ input:focus, textarea:focus {
     font-size: 11px;
     font-weight: bold;
     border: 1px outset #c0c0c0;
-    animation: headerShift 5s linear infinite;
+    animation: headerSparkle 4s linear infinite;
 }
 
-@keyframes headerShift {
+@keyframes headerSparkle {
     0% { background-position: 0% 0%; }
     100% { background-position: 200% 0%; }
 }
 
-/* 尖った商品タイトル */
+/* 可愛い商品タイトル */
 .product-title {
     font-family: 'MS UI Gothic', monospace;
     font-size: 12px;
     font-weight: bold;
-    color: #000080;
+    color: #FF69B4;
     margin-bottom: 2px;
-    animation: titleGlow 3s ease-in-out infinite;
+    animation: titleTwinkle 3s ease-in-out infinite;
 }
 
-@keyframes titleGlow {
-    0%, 100% { color: #000080; }
-    50% { 
-        color: #ff0000;
-        text-shadow: 0 0 5px #ff0000;
-    }
+@keyframes titleTwinkle {
+    0%, 100% { color: #FF69B4; }
+    50% { color: #FFB6C1; }
 }
 
-/* 地獄のボタンスタイル */
+/* 可愛いボタンスタイル */
 .search-button {
-    background: linear-gradient(45deg, #ff0000, #ff6600);
+    background: linear-gradient(45deg, #FF69B4, #FFB6C1);
     border: 2px outset #c0c0c0;
     color: white;
     padding: 1px 8px;
     font-family: 'MS UI Gothic', monospace;
     font-size: 11px;
     cursor: pointer;
-    animation: buttonPulse 2s ease-in-out infinite;
+    animation: buttonFloat 3s ease-in-out infinite;
 }
 
 .search-button:hover {
-    animation: buttonRage 0.3s ease-in-out infinite;
-    box-shadow: 0 0 10px #ff0000;
+    animation: buttonSparkle 0.5s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(255, 105, 180, 0.6);
 }
 
-@keyframes buttonPulse {
+@keyframes buttonFloat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes buttonSparkle {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
 }
 
-@keyframes buttonRage {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.1) rotate(1deg); }
-}
-
-/* 尖った価格表示 */
+/* 可愛い価格表示 */
 .product-price {
     font-family: 'MS UI Gothic', monospace;
     font-size: 14px;
     font-weight: bold;
-    color: #ff0000;
-    animation: priceFlash 2s ease-in-out infinite;
+    color: #FF1493;
+    animation: priceSparkle 3s ease-in-out infinite;
 }
 
-@keyframes priceFlash {
-    0%, 100% { color: #ff0000; }
-    50% { 
-        color: #ffff00;
-        text-shadow: 0 0 5px #ffff00;
-    }
+@keyframes priceSparkle {
+    0%, 100% { color: #FF1493; }
+    50% { color: #FF69B4; }
 }
 
-/* 尖った商品説明 */
+/* 可愛い商品説明 */
 .product-size {
     font-family: 'MS UI Gothic', monospace;
     font-size: 10px;
-    color: #800080;
+    color: #DA70D6;
     animation: sizeGlow 4s ease-in-out infinite;
 }
 
 @keyframes sizeGlow {
-    0%, 100% { color: #800080; }
-    50% { 
-        color: #ff00ff;
-        text-shadow: 0 0 3px #ff00ff;
-    }
+    0%, 100% { color: #DA70D6; }
+    50% { color: #FF69B4; }
 }
 
-/* 攻撃的なスクロールバー */
+/* 可愛いスクロールバー */
 ::-webkit-scrollbar {
     width: 16px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #c0c0c0;
+    background: #FFF0F5;
     border: 1px inset #c0c0c0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #ff0000, #ff6600);
+    background: linear-gradient(45deg, #FF69B4, #FFB6C1);
     border: 1px outset #c0c0c0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #ff6600, #ff0000);
-    animation: scrollRage 0.5s ease-in-out infinite;
+    background: linear-gradient(45deg, #FFB6C1, #FF69B4);
 }
 
-@keyframes scrollRage {
-    0%, 100% { transform: scaleX(1); }
-    50% { transform: scaleX(1.1); }
-}
-
-/* 全体的なページの地獄エフェクト */
+/* 全体的な可愛いページエフェクト */
 body {
-    animation: pageBreath 10s ease-in-out infinite;
+    animation: pageSparkle 6s ease-in-out infinite;
 }
 
-@keyframes pageBreath {
+@keyframes pageSparkle {
     0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.05); }
+    50% { filter: brightness(1.03); }
 }
 
-/* 尖った入力フィールド */
+/* 可愛い入力フィールド */
 .search-input {
     border: 2px inset #c0c0c0;
     background: #ffffff;
     font-family: 'MS UI Gothic', monospace;
     font-size: 11px;
     padding: 1px 3px;
-    animation: inputPulse 3s ease-in-out infinite;
+    animation: inputFloat 4s ease-in-out infinite;
 }
 
 .search-input:focus {
-    border-color: #ff0000;
-    box-shadow: 0 0 10px #ff0000;
-    animation: inputRage 0.5s ease-in-out infinite;
+    border-color: #FF69B4;
+    box-shadow: 0 0 8px rgba(255, 105, 180, 0.4);
+    animation: inputSparkle 0.5s ease-in-out infinite;
 }
 
-@keyframes inputPulse {
+@keyframes inputFloat {
     0%, 100% { background: #ffffff; }
-    50% { background: #fffacd; }
+    50% { background: #fffafd; }
 }
 
-@keyframes inputRage {
+@keyframes inputSparkle {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    50% { transform: scale(1.01); }
 }
 
 /* 特別なプレミアム商品のスタイル */
 .one-of-a-kind {
-    border: 3px solid #ff0000;
+    border: 3px solid #FF69B4;
     background: linear-gradient(45deg, 
-        #ff0000 0%, 
-        #ff6600 25%, 
-        #ffff00 50%, 
-        #ff6600 75%, 
-        #ff0000 100%);
-    background-size: 16px 16px;
-    animation: specialGlow 2s ease-in-out infinite alternate, specialShift 8s linear infinite;
+        #FFB6C1 0%, 
+        #FFC0CB 25%, 
+        #FFE4E1 50%, 
+        #FFC0CB 75%, 
+        #FFB6C1 100%);
+    background-size: 10px 10px;
+    animation: specialSparkle 2s ease-in-out infinite alternate;
 }
 
-@keyframes specialGlow {
+@keyframes specialSparkle {
     0% { 
         box-shadow: 
-            0 0 10px #ff0000,
-            0 0 20px #ff0000,
-            0 0 30px #ff0000;
+            0 0 8px rgba(255, 105, 180, 0.5),
+            0 0 15px rgba(255, 105, 180, 0.3);
     }
     100% { 
         box-shadow: 
-            0 0 20px #ff0000,
-            0 0 30px #ff0000,
-            0 0 40px #ff0000,
-            0 0 50px #ff0000;
+            0 0 12px rgba(255, 105, 180, 0.7),
+            0 0 20px rgba(255, 105, 180, 0.5);
     }
 }
 
-@keyframes specialShift {
-    0% { background-position: 0 0; }
-    100% { background-position: 16px 16px; }
-}
-
-/* 尖ったマーキー効果 */
+/* 可愛いマーキー効果 */
 .product-brand {
-    animation: brandFlash 3s ease-in-out infinite;
+    animation: brandFloat 3s ease-in-out infinite;
 }
 
-@keyframes brandFlash {
+@keyframes brandFloat {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+    50% { opacity: 0.9; }
 }
 
-/* 地獄のチェックボックス */
+/* 可愛いチェックボックス */
 input[type="checkbox"] {
     appearance: none;
     width: 12px;
     height: 12px;
-    background: #c0c0c0;
+    background: #FFF0F5;
     border: 2px inset #c0c0c0;
     position: relative;
     cursor: pointer;
-    animation: checkboxPulse 4s ease-in-out infinite;
+    animation: checkboxFloat 4s ease-in-out infinite;
 }
 
 input[type="checkbox"]:checked::after {
-    content: '■';
+    content: '♡';
     position: absolute;
     top: -2px;
     left: 0;
-    color: #ff0000;
+    color: #FF69B4;
     font-size: 10px;
-    animation: checkRage 0.5s ease-in-out infinite;
+    animation: checkSparkle 1s ease-in-out infinite;
 }
 
-@keyframes checkboxPulse {
+@keyframes checkboxFloat {
     0%, 100% { border-color: #c0c0c0; }
-    50% { border-color: #ff0000; }
+    50% { border-color: #FF69B4; }
 }
 
-@keyframes checkRage {
+@keyframes checkSparkle {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.2); }
 }
 
-/* 攻撃的なステータスバー */
-.status-bar {
-    background: linear-gradient(90deg, #008080, #ff0000, #008080);
-    background-size: 200% 100%;
-    animation: statusShift 3s linear infinite;
-}
-
-@keyframes statusShift {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 200% 0%; }
-}
-
-/* 尖った訪問者カウンター */
-.visitor-counter {
-    animation: counterRage 2s ease-in-out infinite;
-}
-
-@keyframes counterRage {
-    0%, 100% { 
-        color: #ff0000;
-        text-shadow: 0 0 5px #ff0000;
-    }
-    50% { 
-        color: #ffff00;
-        text-shadow: 0 0 10px #ffff00;
-    }
-}
-
-/* 地獄のセクションヘッダー */
+/* 可愛いセクションヘッダー */
 .section-header {
     font-family: 'MS UI Gothic', monospace;
     font-size: 14px;
     font-weight: bold;
     color: #ffffff;
-    background: linear-gradient(45deg, #ff0000, #ff6600, #ffff00, #ff6600, #ff0000);
-    background-size: 400% 100%;
+    background: linear-gradient(45deg, #FF69B4, #FFB6C1, #FFC0CB, #FFB6C1, #FF69B4);
+    background-size: 300% 100%;
     padding: 5px 10px;
     border: 2px outset #c0c0c0;
     text-align: center;
     margin-bottom: 10px;
-    animation: headerRage 3s linear infinite, headerPulse 2s ease-in-out infinite;
+    animation: headerSparkleFlow 3s linear infinite;
 }
 
-@keyframes headerRage {
+@keyframes headerSparkleFlow {
     0% { background-position: 0% 0%; }
-    100% { background-position: 400% 0%; }
+    100% { background-position: 300% 0%; }
 }
 
-@keyframes headerPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-}
-
-/* 最終的な地獄エフェクト */
+/* 可愛いウィンドウエフェクト */
 .window-body {
-    animation: windowBreath 8s ease-in-out infinite;
+    animation: windowSparkle 8s ease-in-out infinite;
 }
 
-@keyframes windowBreath {
+@keyframes windowSparkle {
     0%, 100% { filter: contrast(1); }
-    50% { filter: contrast(1.05); }
+    50% { filter: contrast(1.02); }
 }
 
-/* 尖った商品画像プレースホルダー */
+/* 可愛い商品画像プレースホルダー */
 .image-placeholder {
     width: 100%;
     height: 100px;
-    background: linear-gradient(45deg, #ff0000, #000000);
-    background-size: 8px 8px;
+    background: linear-gradient(45deg, #FF69B4, #FFB6C1);
+    background-size: 5px 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'MS UI Gothic', monospace;
-    font-size: 24px;
+    font-size: 32px;
     color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     border: 2px inset #c0c0c0;
-    animation: imagePulse 3s ease-in-out infinite, imageShift 6s linear infinite;
+    animation: imageFloat 3s ease-in-out infinite;
 }
 
-@keyframes imagePulse {
+@keyframes imageFloat {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    50% { transform: scale(1.01); }
 }
 
-@keyframes imageShift {
-    0% { background-position: 0 0; }
-    100% { background-position: 8px 8px; }
+/* 可愛い全体のきらきら効果 */
+.window::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 80% 80%, rgba(255, 182, 193, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 40% 60%, rgba(255, 192, 203, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px, 30px 30px, 20px 20px;
+    animation: sparkleMove 10s linear infinite;
+    pointer-events: none;
+    z-index: 1000;
 }
+
+@keyframes sparkleMove {
+    0% { background-position: 0 0, 0 0, 0 0; }
+    100% { background-position: 50px 50px, 30px 30px, 20px 20px; }
+}
+
+/* 可愛いホバーエフェクト */
+.product-item:hover .product-title {
+    animation: titleSparkle 0.5s ease-in-out infinite;
+}
+
+@keyframes titleSparkle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
