@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RETRO FASHION - 古着通販サイト</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="window">
+        <!-- タイトルバー -->
+        <div class="title-bar">
+            <div class="title-bar-text">■ RETRO FASHION - 古着通販サイト</div>
+            <div class="title-bar-controls">
+                <button class="title-bar-control">_</button>
+                <button class="title-bar-control">□</button>
+                <button class="title-bar-control">×</button>
+            </div>
+        </div>
+        
+        <!-- メインコンテンツ -->
+        <div class="window-body">
+            <!-- ヘッダー -->
+            <div class="header-section">
+                <div class="site-logo">
+                    <h1>RETRO FASHION</h1>
+                    <p>ヴィンテージ＆古着専門店 (^^)</p>
+                </div>
+                <div class="header-menu">
+                    <div class="login-area">
+                        <a href="#" class="header-link">ログイン</a> | 
+                        <a href="#" class="header-link">新規会員登録</a> | 
+                        <a href="#" class="header-link">カート(0)</a>
+                    </div>
+                    <div class="search-area">
+                        <form class="search-form">
+                            <input type="text" class="search-input" placeholder="商品を検索">
+                            <button type="submit" class="search-button">検索</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <!-- サイドバー -->
+                    <td width="200" valign="top">
+                        <div class="panel">
+                            <div class="panel-header">■ カテゴリー</div>
+                            <div class="panel-body">
+                                <div class="category-menu">
+                                    <div class="category-item">
+                                        <a href="#tops" class="category-link">→ トップス</a>
+                                    </div>
+                                    <div class="category-item">
+                                        <a href="#bottoms" class="category-link">→ ボトムス</a>
+                                    </div>
+                                    <div class="category-item">
+                                        <a href="#outerwear" class="category-link">→ アウター</a>
+                                    </div>
+                                    <div class="category-item">
+                                        <a href="#dresses" class="category-link">→ ワンピース</a>
+                                    </div>
+                                    <div class="category-item">
+                                        <a href="#accessories" class="category-link">→ アクセサリー</a>
+                                    </div>
+                                    <div class="category-item">
+                                        <a href="#shoes" class="category-link">→ シューズ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="panel" style="margin-top: 10px;">
+                            <div class="panel-header">★ ブランド</div>
+                            <div class="panel-body">
+                                <div class="brand-list">
+                                    <div class="brand-item">
+                                        <a href="#" class="brand-link">・NIKE</a>
+                                    </div>
+                                    <div class="brand-item">
+                                        <a href="#" class="brand-link">・ADIDAS</a>
+                                    </div>
+                                    <div class="brand-item">
+                                        <a href="#" class="brand-link">・LEVI'S</a>
+                                    </div>
+                                    <div class="brand-item">
+                                        <a href="#" class="brand-link">・TOMMY</a>
+                                    </div>
+                                    <div class="brand-item">
+                                        <a href="#" class="brand-link">・RALPH LAUREN</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="panel" style="margin-top: 10px;">
+                            <div class="panel-header">□ サイズ</div>
+                            <div class="panel-body">
+                                <div class="size-filter">
+                                    <label><input type="checkbox" name="size" value="XS"> XS</label>
+                                    <label><input type="checkbox" name="size" value="S"> S</label>
+                                    <label><input type="checkbox" name="size" value="M"> M</label>
+                                    <label><input type="checkbox" name="size" value="L"> L</label>
+                                    <label><input type="checkbox" name="size" value="XL"> XL</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="panel" style="margin-top: 10px;">
+                            <div class="panel-header">¥ 価格帯</div>
+                            <div class="panel-body">
+                                <div class="price-filter">
+                                    <label><input type="checkbox" name="price" value="1"> ～1,000円</label>
+                                    <label><input type="checkbox" name="price" value="2"> 1,000～3,000円</label>
+                                    <label><input type="checkbox" name="price" value="3"> 3,000～5,000円</label>
+                                    <label><input type="checkbox" name="price" value="4"> 5,000～10,000円</label>
+                                    <label><input type="checkbox" name="price" value="5"> 10,000円～</label>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    
+                    <!-- メインエリア -->
+                    <td valign="top" style="padding-left: 10px;">
+                        <div class="content-area">
+                            <!-- 新着商品 -->
+                            <div class="content-section">
+                                <div class="section-header">★ NEW ARRIVAL ★</div>
+                                <div class="section-content">
+                                    <div class="product-grid">
+                                        <div class="product-item">
+                                            <div class="product-image">
+                                                <div class="image-placeholder">□</div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-title">ヴィンテージ Tシャツ</div>
+                                                <div class="product-brand">NIKE</div>
+                                                <div class="product-price">¥2,800</div>
+                                                <div class="product-size">サイズ: M</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="product-item">
+                                            <div class="product-image">
+                                                <div class="image-placeholder">□</div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-title">デニムジャケット</div>
+                                                <div class="product-brand">LEVI'S</div>
+                                                <div class="product-price">¥8,500</div>
+                                                <div class="product-size">サイズ: L</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="product-item">
+                                            <div class="product-image">
+                                                <div class="image-placeholder">□</div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-title">チェックシャツ</div>
+                                                <div class="product-brand">TOMMY</div>
+                                                <div class="product-price">¥3,200</div>
+                                                <div class="product-size">サイズ: M</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="product-item">
+                                            <div class="product-image">
+                                                <div class="image-placeholder">□</div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-title">スウェットパンツ</div>
+                                                <div class="product-brand">ADIDAS</div>
+                                                <div class="product-price">¥4,100</div>
+                                                <div class="product-size">サイズ: L</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="product-item">
+                                            <div class="product-image">
+                                                <div class="image-placeholder">□</div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-title">ワンピース</div>
+                                                <div class="product-brand">RALPH LAUREN</div>
+                                                <div class="product-price">¥6,800</div>
+                                                <div class="product-size">サイズ: S</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="product-item">
+                                            <div class="product-image">
+                                                <div class="image-placeholder">□</div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-title">レザージャケット</div>
+                                                <div class="product-brand">VINTAGE</div>
+                                                <div class="product-price">¥12,000</div>
+                                                <div class="product-size">サイズ: M</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- セール商品 -->
+                            <div class="content-section">
+                                <div class="section-header">♪ SALE ♪</div>
+                                <div class="section-content">
+                                    <div class="product-grid">
+                                        <div class="product-item sale-item">
+                                            <div class="product-image">
+                                                <div class="image-placeholder">□</div>
+                                                <div class="sale-badge">SALE</div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-title">ポロシャツ</div>
+                                                <div class="product-brand">POLO</div>
+                                                <div class="product-price">
+                                                    <span class="original-price">¥3,500</span>
+                                                    <span class="sale-price">¥2,100</span>
+                                                </div>
+                                                <div class="product-size">サイズ: M</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="product-item sale-item">
+                                            <div class="product-image">
+                                                <div class="image-placeholder">□</div>
+                                                <div class="sale-badge">SALE</div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-title">カーゴパンツ</div>
+                                                <div class="product-brand">MILITARY</div>
+                                                <div class="product-price">
+                                                    <span class="original-price">¥5,000</span>
+                                                    <span class="sale-price">¥3,500</span>
+                                                </div>
+                                                <div class="product-size">サイズ: L</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="product-item sale-item">
+                                            <div class="product-image">
+                                                <div class="image-placeholder">□</div>
+                                                <div class="sale-badge">SALE</div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-title">スニーカー</div>
+                                                <div class="product-brand">CONVERSE</div>
+                                                <div class="product-price">
+                                                    <span class="original-price">¥4,800</span>
+                                                    <span class="sale-price">¥2,900</span>
+                                                </div>
+                                                <div class="product-size">サイズ: 26cm</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- ページネーション -->
+                            <div class="pagination">
+                                <a href="#" class="page-link">← 前</a>
+                                <a href="#" class="page-link current">1</a>
+                                <a href="#" class="page-link">2</a>
+                                <a href="#" class="page-link">3</a>
+                                <a href="#" class="page-link">次 →</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- ステータスバー -->
+        <div class="status-bar">
+            <div class="status-text">商品数: 1,234件 | 最終更新: 2024年12月21日 (*^_^*)</div>
+        </div>
+    </div>
+</body>
+</html>
