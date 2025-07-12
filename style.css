@@ -1,13 +1,28 @@
-/* 古着ECサイト（ZOZOタウン初期風）CSS */
+/* 古着ECサイト（ZOZOタウン初期風）CSS - レトロ低画質版 */
 
 body {
     margin: 0;
     padding: 20px;
-    font-family: "MS Sans Serif", sans-serif;
+    font-family: "MS Sans Serif", "Courier New", monospace;
     font-size: 11px;
     background-color: #c0c0c0;
     color: #000000;
-    background-image: none;
+    background-image: 
+        radial-gradient(circle at 1px 1px, rgba(0,0,0,0.1) 1px, transparent 0);
+    background-size: 4px 4px;
+    /* 低画質効果 */
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    /* 古いCRT風のちらつき効果 */
+    filter: contrast(1.1) brightness(0.95);
+}
+
+/* 全体的な低画質効果 */
+* {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
 }
 
 /* メインウィンドウ */
@@ -17,11 +32,13 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    /* 古いブラウザ風の粗い境界線 */
+    border-radius: 0;
 }
 
 /* タイトルバー */
 .title-bar {
-    background: linear-gradient(to right, #0080c0, #004080);
+    background: linear-gradient(to bottom, #0080c0 0%, #004080 100%);
     color: white;
     padding: 4px 6px;
     display: flex;
@@ -29,11 +46,18 @@ body {
     align-items: center;
     font-weight: bold;
     font-size: 11px;
+    /* ドット絵風の境界線 */
+    border-bottom: 1px solid #808080;
+    /* 古いディスプレイ風の効果 */
+    background-image: 
+        linear-gradient(90deg, transparent 50%, rgba(255,255,255,0.03) 50%);
+    background-size: 2px 2px;
 }
 
 .title-bar-text {
     display: flex;
     align-items: center;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
 }
 
 .title-bar-controls {
@@ -49,6 +73,11 @@ body {
     font-size: 9px;
     cursor: pointer;
     padding: 0;
+    /* ドット絵風のボタン */
+    background-image: 
+        linear-gradient(45deg, #d0d0d0 25%, transparent 25%),
+        linear-gradient(-45deg, #d0d0d0 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 .title-bar-control:hover {
@@ -63,6 +92,10 @@ body {
 .window-body {
     padding: 10px;
     background-color: #c0c0c0;
+    /* 古いCRT風のスキャンライン効果 */
+    background-image: 
+        linear-gradient(0deg, transparent 50%, rgba(0,0,0,0.02) 50%);
+    background-size: 100% 3px;
 }
 
 /* ヘッダーセクション */
@@ -74,6 +107,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* 古いブラウザ風の粗い背景 */
+    background-image: 
+        linear-gradient(45deg, #fafafa 25%, transparent 25%),
+        linear-gradient(-45deg, #fafafa 25%, transparent 25%);
+    background-size: 8px 8px;
 }
 
 .site-logo h1 {
@@ -81,12 +119,16 @@ body {
     font-size: 24px;
     color: #000080;
     font-weight: bold;
+    /* 古いフォント風の粗い文字 */
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    font-family: "MS Sans Serif", "Courier New", monospace;
 }
 
 .site-logo p {
     margin: 2px 0 0 0;
     font-size: 11px;
     color: #666666;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .header-menu {
@@ -96,16 +138,19 @@ body {
 .login-area {
     margin-bottom: 8px;
     font-size: 11px;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .header-link {
     color: #000080;
     text-decoration: none;
     font-size: 11px;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .header-link:hover {
     text-decoration: underline;
+    background-color: rgba(0,0,255,0.1);
 }
 
 .search-form {
@@ -118,6 +163,12 @@ body {
     padding: 3px 5px;
     border: 1px inset #c0c0c0;
     font-size: 11px;
+    font-family: "MS Sans Serif", monospace;
+    /* 古いフォーム風の粗い背景 */
+    background-color: white;
+    background-image: 
+        linear-gradient(45deg, #fefefe 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 .search-button {
@@ -126,6 +177,11 @@ body {
     padding: 3px 12px;
     font-size: 11px;
     cursor: pointer;
+    font-family: "MS Sans Serif", monospace;
+    /* ドット絵風のボタン */
+    background-image: 
+        linear-gradient(135deg, #d0d0d0 25%, transparent 25%);
+    background-size: 4px 4px;
 }
 
 .search-button:hover {
@@ -141,6 +197,10 @@ body {
     background-color: #c0c0c0;
     border: 1px inset #c0c0c0;
     margin-bottom: 5px;
+    /* 古いウィンドウ風の粗い背景 */
+    background-image: 
+        linear-gradient(90deg, #c8c8c8 50%, #b8b8b8 50%);
+    background-size: 2px 2px;
 }
 
 .panel-header {
@@ -149,32 +209,48 @@ body {
     border-bottom: 1px solid #808080;
     font-weight: bold;
     font-size: 11px;
+    font-family: "MS Sans Serif", monospace;
+    /* 古いヘッダー風の効果 */
+    background-image: 
+        linear-gradient(180deg, #d0d0d0 0%, #b0b0b0 100%);
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
 }
 
 .panel-body {
     padding: 8px;
     background-color: #c0c0c0;
+    font-family: "MS Sans Serif", monospace;
 }
 
 /* カテゴリーメニュー */
 .category-menu, .brand-list {
     font-size: 11px;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .category-item, .brand-item {
     padding: 2px 4px;
     margin: 1px 0;
+    /* 古いメニュー風の背景 */
+    background-image: 
+        linear-gradient(90deg, transparent 50%, rgba(255,255,255,0.1) 50%);
+    background-size: 2px 2px;
 }
 
 .category-item:hover, .brand-item:hover {
     background-color: #0080c0;
     color: white;
+    /* 選択時のドット絵風効果 */
+    background-image: 
+        linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 .category-link, .brand-link {
     color: #000080;
     text-decoration: none;
     font-size: 11px;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .category-item:hover .category-link, .brand-item:hover .brand-link {
@@ -184,16 +260,37 @@ body {
 /* フィルター */
 .size-filter, .price-filter {
     font-size: 10px;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .size-filter label, .price-filter label {
     display: block;
     margin: 3px 0;
     cursor: pointer;
+    /* 古いフォーム風の効果 */
+    background-image: 
+        linear-gradient(90deg, transparent 50%, rgba(0,0,0,0.02) 50%);
+    background-size: 2px 2px;
 }
 
 .size-filter input, .price-filter input {
     margin-right: 5px;
+    /* 古いチェックボックス風 */
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 1px inset #c0c0c0;
+    background-color: white;
+    background-image: 
+        linear-gradient(45deg, #f0f0f0 25%, transparent 25%);
+    background-size: 2px 2px;
+}
+
+.size-filter input:checked, .price-filter input:checked {
+    background-color: #0080c0;
+    background-image: 
+        linear-gradient(45deg, #ffffff 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 /* コンテンツエリア */
@@ -202,6 +299,10 @@ body {
     border: 1px inset #c0c0c0;
     padding: 15px;
     margin-left: 5px;
+    /* 古いブラウザ風の粗い背景 */
+    background-image: 
+        radial-gradient(circle at 2px 2px, rgba(0,0,0,0.02) 1px, transparent 0);
+    background-size: 8px 8px;
 }
 
 /* コンテンツセクション */
@@ -209,6 +310,10 @@ body {
     margin-bottom: 30px;
     border: 1px outset #c0c0c0;
     background-color: #f0f0f0;
+    /* 古いセクション風の背景 */
+    background-image: 
+        linear-gradient(135deg, #f8f8f8 25%, transparent 25%);
+    background-size: 6px 6px;
 }
 
 .section-header {
@@ -217,11 +322,20 @@ body {
     border-bottom: 1px solid #808080;
     font-weight: bold;
     font-size: 12px;
+    font-family: "MS Sans Serif", monospace;
+    /* 古いヘッダー風の効果 */
+    background-image: 
+        linear-gradient(180deg, #d0d0d0 0%, #b0b0b0 100%);
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
 }
 
 .section-content {
     padding: 15px;
     background-color: white;
+    /* 古いコンテンツ風の背景 */
+    background-image: 
+        linear-gradient(0deg, transparent 50%, rgba(0,0,0,0.01) 50%);
+    background-size: 100% 4px;
 }
 
 /* 商品グリッド */
@@ -238,11 +352,25 @@ body {
     padding: 10px;
     text-align: center;
     position: relative;
+    /* 古い商品カード風の効果 */
+    background-image: 
+        linear-gradient(45deg, #fefefe 25%, transparent 25%),
+        linear-gradient(-45deg, #fefefe 25%, transparent 25%);
+    background-size: 4px 4px;
+    /* 低画質効果 */
+    image-rendering: pixelated;
+    transform: scale(0.98);
+    transition: transform 0.1s;
 }
 
 .product-item:hover {
     border-color: #0080c0;
     box-shadow: 0 0 5px rgba(0, 128, 192, 0.3);
+    transform: scale(1);
+    /* ホバー時のドット絵風効果 */
+    background-image: 
+        linear-gradient(45deg, rgba(0,128,192,0.1) 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 .product-image {
@@ -261,6 +389,15 @@ body {
     font-size: 24px;
     color: #999999;
     margin: 0 auto;
+    font-family: "MS Sans Serif", monospace;
+    /* 古い画像プレースホルダー風 */
+    background-image: 
+        linear-gradient(45deg, #f8f8f8 25%, transparent 25%),
+        linear-gradient(-45deg, #f8f8f8 25%, transparent 25%);
+    background-size: 8px 8px;
+    /* 低画質効果 */
+    image-rendering: pixelated;
+    filter: contrast(0.8) brightness(0.9);
 }
 
 .sale-badge {
@@ -272,51 +409,68 @@ body {
     padding: 2px 6px;
     font-size: 9px;
     font-weight: bold;
-    border-radius: 3px;
+    border-radius: 0px;
+    font-family: "MS Sans Serif", monospace;
+    /* 古いバッジ風の効果 */
+    background-image: 
+        linear-gradient(45deg, rgba(255,255,255,0.3) 25%, transparent 25%);
+    background-size: 2px 2px;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
 }
 
 .product-info {
     font-size: 11px;
     text-align: left;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .product-title {
     font-weight: bold;
     margin-bottom: 3px;
     font-size: 12px;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .product-brand {
     color: #666666;
     font-size: 10px;
     margin-bottom: 5px;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .product-price {
     font-weight: bold;
     color: #000080;
     margin-bottom: 3px;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .original-price {
     text-decoration: line-through;
     color: #999999;
     font-size: 10px;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .sale-price {
     color: #ff0000;
     font-weight: bold;
     margin-left: 5px;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .product-size {
     font-size: 10px;
     color: #666666;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .sale-item {
     border-color: #ff0000;
+    /* セール商品の古い効果 */
+    background-image: 
+        linear-gradient(45deg, rgba(255,0,0,0.05) 25%, transparent 25%);
+    background-size: 4px 4px;
 }
 
 /* ページネーション */
@@ -325,6 +479,10 @@ body {
     margin-top: 20px;
     padding: 10px;
     border-top: 1px solid #cccccc;
+    /* 古いページネーション風の背景 */
+    background-image: 
+        linear-gradient(90deg, transparent 50%, rgba(0,0,0,0.02) 50%);
+    background-size: 4px 4px;
 }
 
 .page-link {
@@ -336,10 +494,19 @@ body {
     color: #000080;
     text-decoration: none;
     font-size: 11px;
+    font-family: "MS Sans Serif", monospace;
+    /* 古いリンク風の効果 */
+    background-image: 
+        linear-gradient(135deg, #d0d0d0 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 .page-link:hover {
     background-color: #e0e0e0;
+    /* ホバー時のドット絵風効果 */
+    background-image: 
+        linear-gradient(45deg, rgba(255,255,255,0.5) 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 .page-link:active {
@@ -350,6 +517,10 @@ body {
     background-color: #0080c0;
     color: white;
     border: 1px inset #0080c0;
+    /* 現在のページのドット絵風効果 */
+    background-image: 
+        linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 /* ステータスバー */
@@ -359,24 +530,31 @@ body {
     padding: 4px 8px;
     font-size: 10px;
     color: #000000;
+    font-family: "MS Sans Serif", monospace;
+    /* 古いステータスバー風の効果 */
+    background-image: 
+        linear-gradient(180deg, #d0d0d0 0%, #b0b0b0 100%);
 }
 
 .status-text {
     margin: 0;
+    font-family: "MS Sans Serif", monospace;
 }
 
 /* 一般的なテキストスタイル */
 h1, h2, h3, h4, h5, h6 {
     color: #000080;
     font-weight: bold;
+    font-family: "MS Sans Serif", monospace;
 }
 
 p {
     margin: 8px 0;
     line-height: 1.4;
+    font-family: "MS Sans Serif", monospace;
 }
 
-/* スクロールバー（Windows98風） */
+/* 古いCRT風のスクロールバー */
 ::-webkit-scrollbar {
     width: 16px;
 }
@@ -384,11 +562,19 @@ p {
 ::-webkit-scrollbar-track {
     background: #c0c0c0;
     border: 1px inset #c0c0c0;
+    /* 古いスクロールトラック風 */
+    background-image: 
+        linear-gradient(90deg, #c8c8c8 50%, #b8b8b8 50%);
+    background-size: 2px 2px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: #c0c0c0;
     border: 1px outset #c0c0c0;
+    /* 古いスクロールハンドル風 */
+    background-image: 
+        linear-gradient(45deg, #d0d0d0 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -409,6 +595,10 @@ p {
 input:focus, textarea:focus {
     outline: 1px dotted #000000;
     outline-offset: -2px;
+    /* 古いフォーカス風の効果 */
+    background-image: 
+        linear-gradient(45deg, rgba(0,128,192,0.1) 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 /* レスポンシブ対応 */
@@ -493,6 +683,7 @@ input:focus, textarea:focus {
     font-weight: bold;
     color: #000080;
     margin: 10px 0;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .add-to-cart-btn {
@@ -503,6 +694,11 @@ input:focus, textarea:focus {
     font-size: 12px;
     cursor: pointer;
     font-weight: bold;
+    font-family: "MS Sans Serif", monospace;
+    /* 古いボタン風の効果 */
+    background-image: 
+        linear-gradient(135deg, rgba(255,255,255,0.3) 25%, transparent 25%);
+    background-size: 2px 2px;
 }
 
 .add-to-cart-btn:hover {
@@ -526,10 +722,15 @@ input:focus, textarea:focus {
     height: 60px;
     background-color: #f0f0f0;
     border: 1px solid #cccccc;
+    /* 古い画像風の効果 */
+    background-image: 
+        linear-gradient(45deg, #f8f8f8 25%, transparent 25%);
+    background-size: 4px 4px;
 }
 
 .cart-item-info {
     flex: 1;
+    font-family: "MS Sans Serif", monospace;
 }
 
 .cart-total {
@@ -539,6 +740,7 @@ input:focus, textarea:focus {
     padding: 10px;
     border-top: 2px solid #0080c0;
     color: #000080;
+    font-family: "MS Sans Serif", monospace;
 }
 
 /* エラーメッセージ */
@@ -549,6 +751,11 @@ input:focus, textarea:focus {
     padding: 10px;
     margin: 10px 0;
     font-size: 11px;
+    font-family: "MS Sans Serif", monospace;
+    /* 古いエラーメッセージ風 */
+    background-image: 
+        linear-gradient(45deg, rgba(255,0,0,0.1) 25%, transparent 25%);
+    background-size: 4px 4px;
 }
 
 /* 成功メッセージ */
@@ -559,4 +766,40 @@ input:focus, textarea:focus {
     padding: 10px;
     margin: 10px 0;
     font-size: 11px;
+    font-family: "MS Sans Serif", monospace;
+    /* 古い成功メッセージ風 */
+    background-image: 
+        linear-gradient(45deg, rgba(0,170,0,0.1) 25%, transparent 25%);
+    background-size: 4px 4px;
+}
+
+/* 古いCRT風のグロー効果 */
+.retro-glow {
+    text-shadow: 
+        0 0 2px currentColor,
+        0 0 4px currentColor,
+        1px 1px 0px rgba(0,0,0,0.5);
+}
+
+/* 古いPC風のちらつき効果 */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.98; }
+}
+
+.flicker {
+    animation: flicker 0.15s infinite linear;
+}
+
+/* 古いローディング効果 */
+.loading {
+    background-image: 
+        linear-gradient(45deg, transparent 25%, rgba(0,0,0,0.1) 25%, rgba(0,0,0,0.1) 50%, transparent 50%, transparent 75%, rgba(0,0,0,0.1) 75%);
+    background-size: 4px 4px;
+    animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 0 0; }
+    100% { background-position: 4px 4px; }
 }
